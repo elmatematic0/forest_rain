@@ -1,7 +1,9 @@
 <h1><%= @product.name %></h1>
 <p><%= @product.description %></p><br />
 <p>Price: <%= @product.price_in_cents %></p><br />
+<%= render partial: 'reviews/form' %>
 <%= link_to "<< Back to Products List", products_path %><br />
 <%= link_to "<< Delete Product", product_path(@product), method: :delete, data: {confirm: "Really delete the product?"} %><br />
-<%= link_to "<< Edit Product", edit_product_path(@product) %>
-
+<%= link_to "<< Edit Product", edit_product_path(@product) %><br />
+<h3>Reviews (<%= @product.reviews.size %>)</h3>
+<%= render partial: 'products/review', collection: @product.reviews %>

@@ -1,5 +1,7 @@
 Forestrain::Application.routes.draw do
-  resources :products
+  resources :products do 
+    resources :reviews
+  end
   root 'products#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
